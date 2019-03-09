@@ -6,7 +6,8 @@ let db = 'vote';
 
 mongoose.set('useCreateIndex',true);
 mongoose.Promise = global.Promise;
-mongoose.connect(`mongodb://localhost/${db}`, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+//mongoose.connect(`mongodb://localhost/${db}`, { useNewUrlParser: true });
 mongoose.connection.on('error', console.error.bind(console, 'mongodb connection error'));
 mongoose.connection.once('open', () => console.log('mongodb connected'));
 
