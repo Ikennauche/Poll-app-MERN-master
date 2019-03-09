@@ -9,7 +9,7 @@ const routes = require('./routes/index');
 const {errorHandler,notFound} = require('./handlers/index');
 
 const app =  express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 const db = require('./models');
     
 app.use(cors());
@@ -20,7 +20,7 @@ app.use('/api/auth',routes.auth);
 app.use('/api/poll',routes.poll);
 
 app.get('/',(req,res) => {
-	res.send(process.env.SECRET);
+	//res.send(process.env.SECRET);
     //res.json({
       //  hello:'world'
     //});
